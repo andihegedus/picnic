@@ -5,8 +5,11 @@
 #include "GameFramework/Character.h"
 #include "PCharacter.generated.h"
 
+class UPicnicGameInstance;
 class APicnicHUD;
 class APController;
+class USpringArmComponent;
+class UCameraComponent;
 
 UCLASS()
 class PICNICGAME_API APCharacter: public ACharacter
@@ -25,12 +28,39 @@ public:
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
+	void OpenCloseWidget();
+	
 	// PROPERTIES & VARIABLES
 	// -----------------------------
 	
 	UPROPERTY()
 	APController* PlayerController;
+
+	UPROPERTY()
+	UPicnicGameInstance* GameInstance;
 	
 	UPROPERTY(EditAnywhere)
 	APicnicHUD* HUD;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera");
+	USpringArmComponent* SpringArmComp;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera");
+	UCameraComponent* CameraComp;
+
+
+protected:
+	// FUNCTIONS
+	// -----------------------------
+	
+	void CheckForInteractable();
+	
+
+	// PROPERTIES & VARIABLES
+	// -----------------------------
+
+
+	FVector LineTraceStart;
+
+	float CheckInteractionDistance;
 };
