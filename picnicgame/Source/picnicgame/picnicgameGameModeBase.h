@@ -6,6 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "picnicgameGameModeBase.generated.h"
 
+
 /**
  * 
  */
@@ -13,5 +14,12 @@ UCLASS()
 class PICNICGAME_API ApicnicgameGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+	// FUNCTIONS
+	// -----------------------------
+	
+	ApicnicgameGameModeBase(const FObjectInitializer& ObjectInitializer);
+
+	virtual void BeginPlay() override;
 	
 };
