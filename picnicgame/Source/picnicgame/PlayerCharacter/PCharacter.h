@@ -6,6 +6,7 @@
 #include "PCharacter.generated.h"
 
 class APicnicHUD;
+class APController;
 
 UCLASS()
 class PICNICGAME_API APCharacter: public ACharacter
