@@ -4,6 +4,9 @@
 #include "Blueprint/UserWidget.h"
 #include "CharacterCreatorWidget.generated.h"
 
+class APCharacter;
+class APController;
+class UPicnicGameInstance;
 class UButton;
 class UBorder;
 
@@ -19,6 +22,15 @@ public:
 
 	// PROPERTIES & VARIABLES
 	// -----------------------------
+
+	UPROPERTY()
+	APCharacter* PlayerCharacter;
+
+	UPROPERTY()
+	APController* PlayerController;
+
+	UPROPERTY()
+	UPicnicGameInstance* GameInstance;
 
 	UPROPERTY(VisibleAnywhere, meta = (BindWidget))
 	UButton* DesignModeButton;
